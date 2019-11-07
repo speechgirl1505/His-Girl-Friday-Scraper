@@ -34,9 +34,10 @@ This app
 - [Node](https://nodejs.org/en/)
 - [Node Package - Express](https://www.npmjs.com/package/express)
 - [Node Package - Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
-- [Node Package - DotEnv](https://www.npmjs.com/package/dotenv)
+- [Node Package - Cheerio](https://www.npmjs.com/package/cheerio)
+- [Node Package - Axios](https://www.npmjs.com/package/axios)
 - [Node Package - Mongo](https://www.npmjs.com/package/mongojs)
-- [Node Package - Mongo](https://www.npmjs.com/package/mongoose)
+- [Node Package - Mongoose](https://www.npmjs.com/package/mongoose)
 - [othneildrew - Best README Template](https://github.com/othneildrew/Best-README-Template)
 - [Heroku](https://www.heroku.com/platform)
 <!-- GETTING STARTED -->
