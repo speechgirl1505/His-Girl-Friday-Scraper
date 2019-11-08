@@ -8,7 +8,7 @@
 //   });
   
   
-  // Whenever someone clicks a p tag
+//   // Whenever someone clicks a p tag
 //   $(document).on("click", "p", function() {
 //     // Empty the notes from the note section
 //     $("#notes").empty();
@@ -41,23 +41,9 @@
 //         }
 //       });
 //   });
-$(document).on("click", "#saveTheArticle", function() { 
-    event.preventDefault();
-
-
-})
-
-$(document).on("click", "#saveTheArticle", function() { 
-    event.preventDefault();
-    $.get("/scrape").then(function(data){
-        res.redirect("/");
-    })
-    
-    // location.replace("/")
-
-})
+  
 //   // When you click the savenote button
-//   $(document).on("click", "#savenote", function() {
+//   $(document).on("click", "#saveTheDamnnote", function() {
 //     // Grab the id associated with the article from the submit button
 //     var thisId = $(this).attr("data-id");
   
@@ -85,3 +71,8 @@ $(document).on("click", "#saveTheArticle", function() {
 //     $("#bodyinput").val("");
 //   });
   
+
+  $(document).on("click", "#takeNote", function () { 
+        $('#showMeTheModal').modal('toggle')
+  })
+    
