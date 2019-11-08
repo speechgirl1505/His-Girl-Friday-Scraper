@@ -1,0 +1,14 @@
+{{> nav-block }}
+<div class=" container notAnObject">
+    {{#each dbArticle}}
+    <div class="row pullMyArticle">
+        <div class="col">
+            <h4>{{this.title}}</h4>
+            <a href="{{this.link}}">Go to Article</a>
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="searchRecipe" id="saveTheArticle">
+                Save Article
+            </button>
+        </div>
+    </div>
+    {{/each}}
+</div>
