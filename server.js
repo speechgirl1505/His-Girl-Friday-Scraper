@@ -16,6 +16,8 @@ var PORT =  process.env.PORT || 3000
 // Initialize Express
 var app = express();
 
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 // Configure middleware
 
 // Use morgan logger for logging requests
@@ -28,9 +30,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/newsscraper", { useNewUrlParser: true });
-
-//handlebars
+// mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+//handlebars mongodb://user:password1@ds141228.mlab.com:41228/heroku_pg2mds3z"
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Routes
