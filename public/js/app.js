@@ -1,13 +1,4 @@
 
-// $(document).on("click", ".takeNote", addNote);
-// function addNote() {
-//  console.log("something works");
-//  var noteTitle = $(`input[data-id=${this.id}]`).val();
-//  var noteBody = $(`input[data-id=${this.id}]`).val();
-//  console.log(noteTitle);
-//  console.log(noteBody);
-
-// }
 //   $(document).on("click", "#takeNote", function() {
 // //     // Empty the notes from the note section
 //     // $("#notes").empty();
@@ -55,7 +46,6 @@
       data: {
         // Value taken from title input
         title: $(`#titleId-${thisStupidArticle.id}`).val(),
-
         // Value taken from note textarea
         body: $(`#bodyId-${thisStupidArticle.id}`).val()
       }
@@ -67,12 +57,12 @@
         // Empty the notes section
         $("#notes").empty();
       });
-  
 // Also, remove the values entered in the input and textarea for note entry
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });
 
+  //shows modal when they want to take a note
   $(document).on("click", ".takeNote", function () { 
         $('#showMeTheModal').modal('toggle')
   })
