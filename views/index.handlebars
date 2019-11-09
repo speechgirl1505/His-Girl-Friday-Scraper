@@ -6,8 +6,8 @@
             <h4>{{this.title}}</h4>
             <a href="{{this.link}}">{{this.link}}</a>
             <br>
-            <input type="text" data-id="{{this.id}}" class="form-control" placeholder="Note Title" id="titleId-{{this.id}}">
-            <input type="text" data-id="{{this.id}}" class="form-control" placeholder="Note Text" id="bodyId-{{this.id}}">
+            {{!-- <input type="text" data-id="{{this.id}}" class="form-control" placeholder="Note Title" id="titleId-{{this.id}}">
+            <input type="text" data-id="{{this.id}}" class="form-control" placeholder="Note Text" id="bodyId-{{this.id}}"> --}}
             <button class="btn btn-outline-secondary my-2 my-sm-0 takeNote" id={{this.id}}>
                 Take Note
             </button>
@@ -15,7 +15,35 @@
                 Save Article
             </button>
             <hr>
+                   <div class="modal fade" id="showMeTheModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Take A Note</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Note Title</label>
+                        <input type="email" data-id="{{this.id}}" class="form-control" id="titleId-{{this.id}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Note Body</label>
+                        <textarea class="form-control" data-id="{{this.id}}" id="bodyId-{{this.id}}" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                 <button type="button" class="btn btn-secondary saveThisNote" id="{{this.id}}">Save Note!</button>
+            </div>
         </div>
+
+    </div>
+</div>
+        </div>
+ 
     </div>
     {{/each}}
 </div>
@@ -30,17 +58,17 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Note Title</label>
-                        <input type="email" data-value="title-{{this.id}}" class="form-control" id="titleInput">
+                        <input type="email" data-id="{{this.id}}" class="form-control" id="titleId-{{this.id}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Note Body</label>
-                        <textarea class="form-control" data-value="body-{{this.id}}" id="bodyInput" rows="3"></textarea>
+                        <textarea class="form-control" data-id="{{this.id}}" id="bodyId-{{this.id}}" rows="3"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-                 <button type="button" class="btn btn-secondary saveTheDamnNote" id="{{this.id}}">Save Note!</button>
+                 <button type="button" class="btn btn-secondary takeNote" id="{{this.id}}">Save Note!</button>
             </div>
         </div>
 
