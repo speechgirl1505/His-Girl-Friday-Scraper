@@ -50,6 +50,7 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+  
   // Route for grabbing a specific Article by id, populate it with it's note
   app.get("/articles/:id", function(req, res) {
     // TODO
@@ -76,6 +77,7 @@ module.exports = function(app) {
     // and update it's "note" property with the _id of the new note
     db.Note.create(req.body)
       .then(function(dbNote) {
+          console.log(dbNote);
         return db.Article.findOneAndUpdate(
           { _id: req.params.id },
           { note: dbNote._id },

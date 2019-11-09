@@ -1,26 +1,25 @@
-
 {{> nav-block }}
 <div class=" container notAnObject">
     {{#each dbArticle}}
     <div class="row pullMyArticle">
-        <div class="col">
+        <div class="col parent-div" data-id="{{this.id}}">
             <h4>{{this.title}}</h4>
             <a href="{{this.link}}">{{this.link}}</a>
             <br>
-
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="searchRecipe" id="saveTheArticle">
-                Save Article
-            </button>
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="searchRecipe" id="takeNote">
+            <input type="text" data-id="{{this.id}}" class="form-control" placeholder="Note Title" id="titleId-{{this.id}}">
+            <input type="text" data-id="{{this.id}}" class="form-control" placeholder="Note Text" id="bodyId-{{this.id}}">
+            <button class="btn btn-outline-secondary my-2 my-sm-0 takeNote" id={{this.id}}>
                 Take Note
+            </button>
+            <button class="btn btn-outline-secondary my-2 my-sm-0" id="saveTheArticle">
+                Save Article
             </button>
             <hr>
         </div>
-
     </div>
     {{/each}}
 </div>
-<div class="modal fade" id="showMeTheModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+{{!-- <div class="modal fade" id="showMeTheModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -31,18 +30,19 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Note Title</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                        <input type="email" data-value="title-{{this.id}}" class="form-control" id="titleInput">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Note Body</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" data-value="body-{{this.id}}" id="bodyInput" rows="3"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary saveTheDamnNote" data-dismiss="modal">Save Note!</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                 <button type="button" class="btn btn-secondary saveTheDamnNote" id="{{this.id}}">Save Note!</button>
             </div>
         </div>
 
     </div>
-</div>
+</div> --}}
