@@ -54,7 +54,7 @@ module.exports = function(app) {
   // Route for grabbing a specific Article by id, populate it with it's note
   app.get("/articles/:id", function(req, res) {
     db.Article.findOne({ _id: req.params.id })
-      .populate("note")
+      .populate("note", ["title", "body"])
       .then(function(dbArticle) {
         res.json(dbArticle);
       })
@@ -80,14 +80,15 @@ module.exports = function(app) {
 //if they save a note it automatically saves the article???
   // Route for saving/updating an Article's associated Note
   app.post("/articles/:id", function(req, res) {
+console.log(req.body);
     db.Note.create(req.body)
       .then(function(dbNote) {
           console.log(dbNote);
         return db.Article.findOneAndUpdate(
           { _id: req.params.id },
           { note: dbNote._id },
-          {saved: true},
           { new: true }
+          // {saved: true},
         );
       })
       .then(function(dbArticle) {

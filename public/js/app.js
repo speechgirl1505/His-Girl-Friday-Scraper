@@ -32,16 +32,16 @@ console.log("article title" + thisId)
       $("#notes").append("<h5>" + data.title + "</h5>");
       console.log(data.title)
       // An input to enter a new title
-      // $("#notes").append("<input id='titleinput' name='title' >");
+      $("#notes").append(`<input id='titleinput-${thisId}' placeholder="Title of Note" name='title' >`);
       // A textarea to add a new note body
-      $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
+      $("#notes").append(`<textarea id='bodyinput-${thisId} name='body'></textarea>`);
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button class='btn btn-outline-secondary my-2 my-sm-0 saveThisNote' data-id='" + data._id + "'>Save Note</button>");
 
       // If there's a note in the article
       if (data.note) {
         // Place the title of the note in the title input
-        // $("#titleinput").val(data.note.title);
+        $("#titleinput").val(data.note.title);
         // Place the body of the note in the body textarea
         $("#bodyinput").val(data.note.body);
       }
@@ -52,7 +52,7 @@ console.log("article title" + thisId)
   $(document).on("click", ".saveThisNote", function() {
     // Grab the id associated with the article from the submit button
     var thisStupidArticle = $(this).attr("data-id");
-  console.log("get it dammit" + thisStupidArticle);
+  // console.log("get it dammit" + thisStupidArticle);
   // console.log("article title" + $(`#titleId-${thisStupidArticle.id}`).val())
 // Run a POST request to change the note, using what's entered in the inputs
     $.ajax({
@@ -60,9 +60,9 @@ console.log("article title" + thisId)
       url: "/articles/" + thisStupidArticle,
       data: {
         // Value taken from title input
-        title: $(`#titleId-${thisStupidArticle}`).val(),
+        title: $(`#titleinput-${thisStupidArticle}`).val(),
         // Value taken from note textarea
-        body: $(`#bodyId-${thisStupidArticle}`).val()
+        body: $(`#bodyinput-${thisStupidArticle}`).val()
       }
     })
 // With that done
