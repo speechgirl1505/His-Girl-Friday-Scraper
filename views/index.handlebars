@@ -2,13 +2,14 @@
 <div class="main-container notAnObject">
     <div class="container">
         <div class="row pullMyArticle">
-            <div class="col-7 parent-div" id="arties">
+            <div class="col-7 parent-div bePrettier" id="arties">
+                <h4>Articles</h4>
                 {{#each dbArticle}}
                 <div class="bePrettier">
                     <h4>{{this.title}}</h4>
                     <a href="{{this.link}}">View Article</a>
                     <hr>
-                    <button class="btn btn-outline-secondary my-2 my-sm-0" id="takeNote" data-id="{{this.id}}">Take
+                    <button class="btn btn-outline-secondary my-2 my-sm-0 takeNote" data-id="{{this.id}}">Take
                         Note</button>
                 </div>
                 {{/each}}
