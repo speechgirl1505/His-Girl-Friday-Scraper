@@ -16,10 +16,6 @@ $(document).on("click", ".takeNote", function() {
   // $("#notes").empty();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
-  
-
-console.log("get it dammit" + thisId);
-console.log("article title" + thisId)
   // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
@@ -32,7 +28,7 @@ console.log("article title" + thisId)
       $("#notes").append("<h5>" + data.title + "</h5>");
       console.log(data.title)
       // An input to enter a new title
-      $("#notes").append(`<input id='titleinput-${thisId}' placeholder="Title of Note" name='title' >`);
+      // $("#notes").append(`<input id='titleinput-${thisId}' placeholder="Title of Note" name='title' >`);
       // A textarea to add a new note body
       $("#notes").append(`<textarea id='bodyinput-${thisId}' name='body'></textarea>`);
       // A button to submit a new note, with the id of the article saved to it
@@ -41,7 +37,7 @@ console.log("article title" + thisId)
       // If there's a note in the article
       if (data.note) {
         // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
+        // $("#titleinput").val(data.note.title);
         // Place the body of the note in the body textarea
         $("#bodyinput").val(data.note.body);
       }
@@ -60,7 +56,7 @@ console.log("article title" + thisId)
       url: "/articles/" + thisStupidArticle,
       data: {
         // Value taken from title input
-        title: $(`#titleinput-${thisStupidArticle}`).val(),
+        // title: $(`#titleinput-${thisStupidArticle}`).val(),
         // Value taken from note textarea
         body: $(`#bodyinput-${thisStupidArticle}`).val()
       }
@@ -73,12 +69,7 @@ console.log("article title" + thisId)
         $("#empty").empty();
       });
 // Also, remove the values entered in the input and textarea for note entry
-    $("#titleinput").val("");
+    // $("#titleinput").val("");
     $("#bodyinput").val("");
   });
-
-  //shows modal when they want to take a note
-  // $(document).on("click", ".takeNote", function () { 
-  //       $('.showMeTheModal').modal('toggle')
-  // })
     

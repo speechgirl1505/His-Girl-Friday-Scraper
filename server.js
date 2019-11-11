@@ -9,7 +9,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 
 // Require all models
-var db = require("./models");
+require("./models");
 
 var PORT =  process.env.PORT || 3000
 

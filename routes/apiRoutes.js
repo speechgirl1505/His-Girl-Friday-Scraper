@@ -87,8 +87,7 @@ console.log(req.body);
         return db.Article.findOneAndUpdate(
           { _id: req.params.id },
           { note: dbNote._id, saved: true },
-          { new: true },
-          // { saved: true}
+          { new: true }
         );
       })
       .then(function(dbArticle) {
