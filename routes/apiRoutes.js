@@ -54,7 +54,7 @@ module.exports = function(app) {
   // Route for grabbing a specific Article by id, populate it with it's note
   app.get("/articles/:id", function(req, res) {
     db.Article.findOne({ _id: req.params.id })
-      .populate("note", ["title", "body"])
+      .populate("note", )
       .then(function(dbArticle) {
         res.json(dbArticle);
       })
@@ -63,19 +63,19 @@ module.exports = function(app) {
       });
   });
 
-  // app.get("/saved", function(req,res){
-  //   db.Article.find({"saved": true})
-  //   .populate("notes")
-  //   .then(function(dbarticles){
-  //     var hbsObject = {
-  //       article: articles
-  //     };
-  //     res.render("saved", hbsObject);
-  //   })
-  //   .catch(function(err) {
-  //     res.json(err);
-  //   });
-  // });
+  app.get("/saved", function(req,res){
+    db.Article.find({"saved": true})
+    .populate("notes")
+    .then(function(dbarticles){
+      var hbsObject = {
+        article: dbarticles
+      };
+      res.render("saved", hbsObject);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+  });
 
 //if they save a note it automatically saves the article???
   // Route for saving/updating an Article's associated Note
@@ -86,9 +86,9 @@ console.log(req.body);
           console.log(dbNote);
         return db.Article.findOneAndUpdate(
           { _id: req.params.id },
-          { note: dbNote._id },
-          { new: true }
-          // {saved: true},
+          { note: dbNote._id, saved: true },
+          { new: true },
+          // { saved: true}
         );
       })
       .then(function(dbArticle) {

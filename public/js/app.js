@@ -34,7 +34,7 @@ console.log("article title" + thisId)
       // An input to enter a new title
       $("#notes").append(`<input id='titleinput-${thisId}' placeholder="Title of Note" name='title' >`);
       // A textarea to add a new note body
-      $("#notes").append(`<textarea id='bodyinput-${thisId} name='body'></textarea>`);
+      $("#notes").append(`<textarea id='bodyinput-${thisId}' name='body'></textarea>`);
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button class='btn btn-outline-secondary my-2 my-sm-0 saveThisNote' data-id='" + data._id + "'>Save Note</button>");
 
